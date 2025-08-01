@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nav</title>
+
+    <style>
+      /* .nav-link {
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        padding: 4px 8px;
+      }
+       */
+      .nav-link.active {
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        padding: 4px 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#let" class="nav-link">About</a></li>
+        <li><a href="#about" class="nav-link">Services</a></li>
+        <li><a href="#send" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+
+    <script>
+      // Get current file name from the URL (like "about.html")
+      //   const currentPage = window.location.pathname.split("/").pop();
+
+      //   // Select all navigation links
+      //   const navLinks = document.querySelectorAll(".nav-link");
+
+      //   navLinks.forEach((link) => {
+      //     const linkPage = link.getAttribute("href");
+
+      //     // If current page matches link's href, add 'active' class
+      //     if (
+      //       linkPage === currentPage ||
+      //       (linkPage === "index.html" && currentPage === "")
+      //     ) {
+      //       link.classList.add("active");
+      //     }
+      //   });
+
+      // what if i use # for navigation
+      const links = document.querySelectorAll(".nav-link");
+
+      function setActiveLink() {
+        const hash = window.location.hash;
+
+        links.forEach((link) => {
+          if (link.getAttribute("href") === hash) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+      }
+
+      // Run once on page load
+      setActiveLink();
+
+      // Run again whenever hash changes (user clicks or uses back/forward)
+      window.addEventListener("hashchange", setActiveLink);
+
+      //   what if we want to change the nav header when scrolling
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+
+          if (scrollY >= sectionTop - 50) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

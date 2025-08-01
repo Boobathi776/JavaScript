@@ -19,13 +19,14 @@ console.log(currency.toLocaleString()); // this is also return the string value
 // currency
 let price = 1234.10;
 console.log(price.toLocaleString('en-US',{
-    style:'currency',
+    style:"currency",
     currency:'USD'
 }));  // "$1,234.10"
 
 let percent = 0.50;
 console.log(percent.toLocaleString('en-US',{
-    style:'percent'
+    style:'percent',
+    
 }));  // "50%"
 
 

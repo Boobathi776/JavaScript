@@ -1,0 +1,22 @@
+{
+    "tasks": [
+    {
+      "id": 1,
+      "projectId": 1,
+      "description": "Build login page",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "projectId": 2,
+      "description": "Upload family scrolls",
+      "status": "completed"
+    },
+    {
+      "id": 3,
+      "projectId": 3,
+      "description": "Design patient history layout",
+      "status": "in-progress"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form input</title>
+  </head>
+  <body>
+    <input
+      type="text"
+      id="email"
+      placeholder="Enter email"
+      autocomplete="off"
+    />
+    <p id="validation"></p>
+
+    <!-- for password toggle icon -->
+    <input type="password" id="password" placeholder="Enter password" />
+    <button id="toggle">Show</button>
+
+    <script>
+      const emailInput = document.getElementById("email");
+      const message = document.getElementById("validation");
+
+      emailInput.addEventListener("input", () => {
+        const email = emailInput.value;
+        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (pattern.test(email)) {
+          message.textContent = "Valid email";
+          message.style.color = "green";
+        } else {
+          message.textContent = "Invalid email";
+          message.style.color = "red";
+          emailInput.style.outline = "2px solid red";
+          emailInput.style.border = "none";
+        }
+      });
+
+      //  Hide/Show Password on Icon Click
+
+      const passwordField = document.getElementById("password");
+      const toggleBtn = document.getElementById("toggle");
+
+      toggleBtn.addEventListener("click", () => {
+        if (passwordField.type === "password") {
+          passwordField.type = "text";
+          toggleBtn.textContent = "Hide";
+        } else {
+          passwordField.type = "password";
+          toggleBtn.textContent = "Show";
+        }
+      });
+
+      toggleBtn.addEventListener("mouseover", () => {
+        toggleBtn.style.backgroundColor = "blue";
+      });
+
+      toggleBtn.addEventListener(
+        "mouseout",
+        () => (toggleBtn.style.backgroundColor = "green")
+      );
+    </script>
+  </body>
+</html>

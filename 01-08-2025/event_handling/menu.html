@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="menu" style="position: relative">
+      <button>Hover me</button>
+      <ul
+        id="dropdown"
+        style="
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background: lightgray;
+        "
+      >
+        <li>Profile</li>
+        <li>Settings</li>
+        <li>Logout</li>
+      </ul>
+    </div>
+
+    <script>
+      const menu = document.getElementById("menu");
+      const dropdown = document.getElementById("dropdown");
+
+      menu.addEventListener("mouseover", () => {
+        dropdown.style.display = "block";
+      });
+
+      menu.addEventListener("mouseout", () => {
+        dropdown.style.display = "none";
+      });
+    </script>
+
+    <input type="range" min="0" max="100" id="slider" />
+    <span id="value">50</span>
+
+    <script>
+      const slider = document.getElementById("slider");
+      const value = document.getElementById("value");
+
+      slider.addEventListener("input", () => {
+        value.textContent = slider.value;
+      });
+      
+    </script>
+  </body>
+</html>

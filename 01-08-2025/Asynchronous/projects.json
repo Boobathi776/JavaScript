@@ -1,0 +1,19 @@
+{
+    "projects": [
+    {
+      "id": 1,
+      "title": "Chunin Exam System",
+      "ownerId": 1
+    },
+    {
+      "id": 2,
+      "title": "Uchiha Clan Archive",
+      "ownerId": 2
+    },
+    {
+      "id": 3,
+      "title": "Medical Ninja Tracker",
+      "ownerId": 3
+    }
+  ]
+}

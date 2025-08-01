@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>handling the events</title>
+  </head>
+  <body>
+    <button id="btn">click me</button>
+
+    <input type="text" size="15" id="nameInput" />
+
+    <p id="nameOutput"></p>
+    <script>
+      //   document.getElementById("btn").addEventListener("click", () => {
+      //     alert("Welcome to the world of JavaScipt");
+      //   });
+
+      const nameInput = document.getElementById("nameInput");
+      const nameOutput = document.getElementById("nameOutput");
+
+      nameInput.addEventListener("input", () => {
+        nameOutput.textContent = "Hello " + nameInput.value;
+      });
+
+      const button = document.getElementById("btn");
+      function greet() {
+        alert("Hello!");
+      }
+
+      button.addEventListener("click", greet);
+      button.removeEventListener("click", greet);
+
+      //   accessing event object
+      document.addEventListener("click", function (event) {
+        console.log("Clicked on:", event.target);
+      });
+
+      //    Keyboard Event Example
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "A") {
+          console.log("You pressed Enter!");
+        }
+      });
+
+      
+    </script>
+  </body>
+</html>

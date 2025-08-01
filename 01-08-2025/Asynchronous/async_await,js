@@ -1,0 +1,26 @@
+console.log("first");
+
+
+function sleep(ms)
+{
+    return new Promise(resolve=>{setTimeout(resolve,ms)});
+}
+
+async function functionDelay()
+{
+    console.log("Action starts");
+    await sleep(2000);
+    console.log("Action resumes ");
+}
+
+functionDelay();
+
+console.log("second");
+
+for(let i=10;i<100;i++)
+{
+    console.log(i);
+}   
+
+console.log("Third stop");
+

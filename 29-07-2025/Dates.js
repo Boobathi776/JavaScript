@@ -13,7 +13,6 @@ console.log(d.toDateString());   // "Tue Jul 29 2025"
 console.log(d.toISOString());    // "2025-07-29T04:30:00.000Z"
 console.log(d.toLocaleDateString());  // "29/07/2025" (India)
 
-
 // difference between dates in days
 let day1 = new Date("2004-02-10");
 let today = new Date();

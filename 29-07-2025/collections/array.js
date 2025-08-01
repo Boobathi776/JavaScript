@@ -36,8 +36,6 @@ myArray5.length = 10;
 const single_Arr = Array.of(9.3,10.5);
 console.log(single_Arr);
 
-
-
 // Referring to array elements
 const arr = ["one", "two", "three"];
 console.log(arr[2]);//three
