@@ -10,6 +10,7 @@
 //     result.forEach((result) => {
 //         console.log(result);
 //     })
+
 // }
 
 // getData();
