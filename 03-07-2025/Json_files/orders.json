@@ -1,0 +1,14 @@
+{
+  "orders": [
+    { "id": 1, "userId": 1, "product": "Laptop", "quantity": 1 },
+    { "id": 2, "userId": 2, "product": "Mobile", "quantity": 2 },
+    { "id": 3, "userId": 3, "product": "Headphones", "quantity": 1 },
+    { "id": 4, "userId": 4, "product": "Keyboard", "quantity": 1 },
+    { "id": 5, "userId": 5, "product": "Mouse", "quantity": 1 },
+    { "id": 6, "userId": 6, "product": "Tablet", "quantity": 1 },
+    { "id": 7, "userId": 7, "product": "Charger", "quantity": 1 },
+    { "id": 8, "userId": 8, "product": "Monitor", "quantity": 1 },
+    { "id": 9, "userId": 9, "product": "Camera", "quantity": 1 },
+    { "id": 10, "userId": 10, "product": "Speaker", "quantity": 2 }
+  ]
+}

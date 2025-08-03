@@ -1,0 +1,14 @@
+{
+  "posts": [
+    { "id": 1, "title": "First Post", "author": "Boobathi" },
+    { "id": 2, "title": "Learning JS", "author": "Meena" },
+    { "id": 3, "title": "API Tips", "author": "Arun" },
+    { "id": 4, "title": "CSS Tricks", "author": "Divya" },
+    { "id": 5, "title": "HTML Basics", "author": "Ravi" },
+    { "id": 6, "title": "React vs Vue", "author": "Karthik" },
+    { "id": 7, "title": "Node.js Guide", "author": "Praveen" },
+    { "id": 8, "title": "Async/Await", "author": "Sneha" },
+    { "id": 9, "title": "DevOps 101", "author": "Lakshmi" },
+    { "id": 10, "title": "Git Tips", "author": "Manoj" }
+  ]
+}
