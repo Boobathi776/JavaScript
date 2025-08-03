@@ -1,0 +1,74 @@
+✅ Ways to Access DOM Elements in JavaScript
+Method	Syntax	Description	Use Case
+getElementById()	
+    document.getElementById("id")	Selects the element with a specific id	Fast, unique selection
+
+getElementsByClassName()	
+    document.getElementsByClassName("class")	Returns an HTMLCollection of elements with the given class name	Multiple elements
+
+getElementsByTagName()	
+    document.getElementsByTagName("tag")	Returns an HTMLCollection of all elements with the given tag	Broad selection
+
+querySelector()	
+    document.querySelector("selector")	Returns the first matching element using CSS selectors	Flexible and powerful
+
+querySelectorAll()
+    document.querySelectorAll("selector")	Returns a NodeList of all matching elements using CSS selectors	More control with 
+
+
+//Accessing form fiels quickly
+document.forms["myForm"]["username"].value
+
+
+/*
+Methods
+=========
+
+addEventListener(type, handler, useCapture)
+
+removeEventListener(type, handler)
+
+preventDefault()
+
+stopPropagation()
+
+Properties
+===========
+
+event.type
+
+event.target
+
+event.currentTarget
+
+event.key
+
+event.clientX, event.clientY
+
+
+*/
+
+
+
+/*
+Common Methods of classList
+==============================
+.add()	
+    element.classList.add("class1", "class2")	Adds one or more classes
+
+.remove()	
+    element.classList.remove("class1")	Removes one or more classes
+
+.toggle()	
+    element.classList.toggle("class1")	Adds the class if not present; removes it if present
+
+.contains()	
+    element.classList.contains("class1")	Returns true if the class exists
+
+.replace()	
+    element.classList.replace("old", "new")	Replaces one class with another
+
+.length	
+    element.classList.length	Returns the number of classes
+
+*/
