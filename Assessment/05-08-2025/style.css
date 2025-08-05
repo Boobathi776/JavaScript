@@ -1,0 +1,78 @@
+form
+{
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+textarea
+{
+    resize: none;
+}
+
+.radio-button ,.description-box
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-holder
+{
+    /* height: 4vh; */
+    display: grid;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    border: 3px solid black;
+    grid-template-columns: 20% 20% 8% 10% 10% 5% 6% 5% ;
+    gap: .5vw;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2vw;
+}
+
+.update-btn
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+    height: 5vh;
+    margin: auto;
+}
+
+.add-btn
+{
+    width: 10vw;
+    height: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.update-btn button,
+.add-btn button
+{
+    width: 100%;
+    height: 100%;
+    font-size: 1.5vw;
+}
+
+#search
+{
+    width: 80%;
+    display: block;
+    height: 4vh;
+    margin: 1vw auto;
+    outline: 2px solid green;
+}
+
+#priority-finder
+{
+    margin: 1vw auto;
+    display: inline-block;
+    width: 18%;
+    height: 4vh;
+}
