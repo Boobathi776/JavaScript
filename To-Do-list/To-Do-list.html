@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do list</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="crud.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar bg-dark ">
+      <div class="container-fluid text-center">
+        <span class="navbar-brand mb-0 h1 text-white">To Do List</span>
+      </div>
+    </nav>
+
+    <form action="" id="task-add-form" class="px-5 py-4 border-3 border-dark">
+      <div class="mb-0">
+        <label for="title" class="form-label">Title </label>
+        <input
+          type="text"
+          id="title"
+          class="form-control border-2 border-dark"
+          name="title"
+          placeholder="title"
+          maxlength="40"
+        />
+        <span id="title-error-message"></span>
+      </div>
+
+      <div class="description-box mb-0">
+        <label for="description" class="form-label">Description </label>
+        <textarea
+          id="description"
+          class="form-control border-2 border-dark"
+          name="description"
+          cols="40"
+          rows="5"
+          maxlength="200"
+        ></textarea>
+        <span id="description-error-message"></span>
+      </div>
+
+      <div class="mb-2 mt-1">
+        <label for="priority" class="form-label fw-semibold">Priority</label>
+        <div class="d-flex align-items-center gap-3">
+          <input
+            type="range"
+            class="form-range flex-grow-1"
+            id="priority"
+            min="1"
+            max="5"
+            value="3"
+          />
+          <span id="priority-value" class="badge bg-primary fs-6">3</span>
+        </div>
+        <div>
+          <small id="priority-error-message" class="text-danger"></small>
+        </div>
+      </div>
+
+      <div class="form-check mb-3">
+        <input
+          class="form-check-input border-success"
+          type="checkbox"
+          id="done"
+          name="task_done"
+        />
+        <label class="form-check-label fw-bold" for="done"> Is Done </label>
+      </div>
+
+      <div
+        class="d-flex justify-content-center gap-3 mt-3"
+        id="submit-btn-holder"
+      >
+        <button type="submit" id="submit-btn" class="btn btn-success px-4">
+          ADD
+        </button>
+        <button
+          type="button"
+          id="update-btn-for-task"
+          class="btn btn-warning px-4"
+        >
+          UPDATE
+        </button>
+      </div>
+    </form>
+
+    <div class="update-btn" id="update-btn-holder">
+      <!-- <button id="update-btn-for-task">UPDATE</button> -->
+    </div>
+    <hr />
+
+    <!-- Search Input with Floating Label -->
+    <div class="mb-3">
+      <input
+        type="search"
+        id="search"
+        class="form-control-lg border-4"
+        placeholder="Search"
+      />
+    </div>
+
+    <div class="mb-3" style="max-width: 300px; margin: auto">
+      <label for="priority-finder" class="form-label fw-bold mb-0"
+        >Choose the priority</label
+      >
+      <select
+        class="border-2 border-dark"
+        id="priority-finder"
+        name="priority-drop-down"
+        style="width: 30vw"
+      >
+        <option value="0">ALL</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+
+    <div
+      id="task-headings"
+      class="task-holder text-center"
+      style="background-color: rgb(39, 252, 238)"
+    >
+      <h5 class="p-3">TITLE</h5>
+      <h5>DESCRIPTION</h5>
+      <h5>PRIORITY</h5>
+      <h5>CREATED DATE</h5>
+      <h5>UPDATED DATE</h5>
+      <h5>DONE</h5>
+      <h5>UPDATE</h5>
+      <h5>DELETE</h5>
+    </div>
+    <div id="task-container"></div>
+  </body>
+</html>
