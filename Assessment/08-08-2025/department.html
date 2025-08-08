@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module" src="JS/department.js" defer></script>
+</head>
+<body>
+
+    
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+      <div class="container">
+        <a href="#logo" class="navbar-brand">Employee</a>
+
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="home.html" class="nav-link">Employee Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a href="employee-add.html" class="nav-link ">ADD Employee</a>
+          </li>
+          <li class="nav-item">
+            <a href="department.html" class="nav-link active">Department</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <div
+      class="container-fluid d-flex justify-content-center align-items-center"
+      style="height: 70vh"
+    >
+      <form
+        action=""
+        class="rounded-5 p-5"
+        novalidate
+        style="width: 50%; height: 50vh; border: 2px solid black"
+        id="form"
+      >
+        <h2 class="text-center fst-italic mb-3">LOGIN</h2>
+        <div class="form-floating mb-4">
+          <input
+            type="text"
+            class="form-control border-dark border-2"
+            id="name"
+            placeholder=""
+          />
+          <label for="name">Department name</label>
+          <div class="invalid-feedback">Department name field must be filled</div>
+        </div>
+
+        <div class="form-floating mb-3">
+        <input type="text" id="code" class="form-control border-2 border-dark" placeholder="" id="dept-code" min="0"/>
+        <label for="dept-code">Code</label>
+        <div class="invalid-feedback">
+            salary field should not be empty and greater than 0 
+        </div>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center mb-3">
+        <button type="submit" class="btn btn-primary p-2 w-25 d-block" id="submit-btn">ADD</button>
+        <button class="btn btn-primary p-2 w-25 d-none" id="update-btn">UPDATE</button>
+        </div>
+      </form>
+    </div>
+
+
+     <table class="table" >
+        <thead >
+        <tr class="bg-dark">
+            <th class="bg-dark text-light text-center ">Name</th>
+            <th class="bg-dark text-light text-center">code</th>
+            <th class="bg-dark text-light text-center">EDIT</th>
+            <th class="bg-dark text-light text-center">DELETE</th>
+        </tr>
+        </thead>
+
+        <tbody id="employee-details">
+
+        </tbody>
+    </table>
+
+
+</body>
+</html>

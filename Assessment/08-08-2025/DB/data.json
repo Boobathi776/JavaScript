@@ -1,0 +1,69 @@
+{
+  "employees": [
+    {
+      "name": "boobathi",
+      "email": "boobathi@gmail.com",
+      "departmentId": "1",
+      "joiningDate": "2004-02-10",
+      "salary": "1000",
+      "id": "3b47"
+    },
+    {
+      "id": "f7a0",
+      "name": "boobathi",
+      "email": "boobathi@gmail.com",
+      "departmentId": null,
+      "joiningDate": "2004-02-10",
+      "salary": "1000"
+    },
+    {
+      "id": "2dbe",
+      "name": "guah",
+      "email": "asdlfhasdf@gmail.com",
+      "departmentId": null,
+      "joiningDate": "2025-08-14",
+      "salary": "5468498665"
+    },
+    {
+      "id": "2a39",
+      "name": "asldfjkasdf",
+      "email": "employee@gmail.com",
+      "departmentId": "1",
+      "joiningDate": "2025-07-30",
+      "salary": "12465"
+    },
+    {
+      "id": "6018",
+      "name": "asldfjkasdf",
+      "email": "employee@gmail.com",
+      "departmentId": "1",
+      "joiningDate": "2025-07-30",
+      "salary": "789564"
+    },
+    {
+      "id": "a379",
+      "name": "new employee",
+      "email": "asdlfkjasljdf@gmail.com",
+      "departmentId": null,
+      "joiningDate": "2025-08-23",
+      "salary": "89754"
+    }
+  ],
+  "departments": [
+    {
+      "id": "1",
+      "name": "Human Resources",
+      "code": "HR"
+    },
+    {
+      "id": 2,
+      "name": "Engineering",
+      "code": "ENG"
+    },
+    {
+      "id": "eda1",
+      "name": "department",
+      "code": "dev"
+    }
+  ]
+}
