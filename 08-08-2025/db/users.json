@@ -1,0 +1,81 @@
+{
+  "users": [
+    {
+      "id": "5910",
+      "username": "vanakam",
+      "email": "boobathi123@gmail.com",
+      "password": "123",
+      "confirmpassword": "123"
+    },
+    {
+      "id": "6047",
+      "username": "sadf",
+      "email": "asdf",
+      "password": "1234",
+      "confirmpassword": "1234"
+    },
+    {
+      "id": "d6e7",
+      "username": "asdf",
+      "email": "asdf",
+      "password": "asdf",
+      "confirmpassword": "asdf"
+    },
+    {
+      "id": "9fb8",
+      "username": "newUser",
+      "email": "user.example.com",
+      "password": "welcome",
+      "confirmpassword": "welcome"
+    },
+    {
+      "id": "878b",
+      "username": "santhosh",
+      "email": "santhosh@gmail.com",
+      "password": "santhosh",
+      "confirmpassword": "santhosh"
+    },
+    {
+      "id": "6de2",
+      "username": "guhan",
+      "email": "govardana@gmail.com",
+      "password": "gooks",
+      "confirmpassword": "gooks"
+    },
+    {
+      "id": "e5fa",
+      "username": "santhosh",
+      "email": "santhosh@gmail.com",
+      "password": "12345",
+      "confirmpassword": "12345"
+    },
+    {
+      "id": "04f1",
+      "username": "arumugam",
+      "email": "krishnamoorthy@gmail.com",
+      "password": "6face",
+      "confirmpassword": "6face"
+    },
+    {
+      "id": "d067",
+      "username": "guru",
+      "email": "gurujionepiece@gmail.com",
+      "password": "123456",
+      "confirmpassword": "123456"
+    },
+    {
+      "id": "0087",
+      "username": "guru",
+      "email": "gurujionepiece@gmail.com",
+      "password": "guru1",
+      "confirmpassword": "guru1"
+    },
+    {
+      "id": "4557",
+      "username": "arumugam",
+      "email": "krishnamoorthy@gmail.com",
+      "password": "guru2",
+      "confirmpassword": "guru2"
+    }
+  ]
+}

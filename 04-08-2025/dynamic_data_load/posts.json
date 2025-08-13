@@ -1,0 +1,88 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Getting Started with JavaScript",
+      "author": "Boobathi",
+      "content": "Learn the basics of JavaScript including syntax, variables, and functions.",
+      "date": "2025-08-01"
+    },
+    {
+      "id": "2",
+      "title": "Understanding CSS Flexbox",
+      "author": "John Doe",
+      "content": "Master CSS Flexbox layout with real-world examples.",
+      "date": "2025-08-02"
+    },
+    {
+      "id": "3",
+      "title": "HTML5 Semantic Elements",
+      "author": "Jane Smith",
+      "content": "Why semantic HTML matters and how to use it correctly.",
+      "date": "2025-08-03"
+    },
+    {
+      "id": "4",
+      "title": "JavaScript Array Methods",
+      "author": "Boobathi",
+      "content": "Explore commonly used array methods like map, filter, and reduce.",
+      "date": "2025-08-03"
+    },
+    {
+      "id": "5",
+      "title": "Event Handling in JavaScript",
+      "author": "Sarah Kim",
+      "content": "Learn how to handle user interactions using JavaScript events.",
+      "date": "2025-08-03"
+    },
+    {
+      "id": "6",
+      "title": "Responsive Design with Media Queries",
+      "author": "Alex Lee",
+      "content": "Make your websites responsive using CSS media queries.",
+      "date": "2025-08-04"
+    },
+    {
+      "id": "7",
+      "title": "Async JavaScript Explained",
+      "author": "Boobathi",
+      "content": "Understand callbacks, promises, and async/await.",
+      "date": "2025-08-04"
+    },
+    {
+      "id": "8",
+      "title": "Working with the DOM",
+      "author": "Emily Davis",
+      "content": "How to select, update, and remove DOM elements using JavaScript.",
+      "date": "2025-08-04"
+    },
+    {
+      "id": "9",
+      "title": "CSS Grid Tutorial",
+      "author": "Chris Wong",
+      "content": "Design grid-based layouts with modern CSS Grid.",
+      "date": "2025-08-04"
+    },
+    {
+      "id": "10",
+      "title": "Debugging in JavaScript",
+      "author": "Boobathi",
+      "content": "Techniques and tools for debugging JavaScript effectively.",
+      "date": "2025-08-04"
+    },
+    {
+      "id": "11",
+      "title": "Using Fetch API",
+      "author": "Nina Patel",
+      "content": "Learn how to make API calls using the fetch() method.",
+      "date": "2025-08-04"
+    },
+    {
+      "id": "12",
+      "title": "JavaScript Objects Deep Dive",
+      "author": "Boobathi",
+      "content": "Everything you need to know about working with objects in JS.",
+      "date": "2025-08-04"
+    }
+  ]
+}

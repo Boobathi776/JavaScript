@@ -1,0 +1,20 @@
+{
+    "users" : [
+  { "id": "1", "username": "alice123", "age": 25, "email": "alice@example.com", "password": "Alice@123" },
+  { "id": "2", "username": "bob_dev", "age": 30, "email": "bob.dev@example.com", "password": "BobDev@456" },
+  { "id": "3", "username": "charlie88", "age": 22, "email": "charlie88@example.com", "password": "Ch@rlie88" },
+  { "id": "4", "username": "diana_admin", "age": 35, "email": "diana.admin@example.com", "password": "Diana#2024" },
+  { "id": "5", "username": "evan_user", "age": 28, "email": "evan@example.com", "password": "EvanUser123" },
+  { "id": "6", "username": "frank.test", "age": 33, "email": "frank.test@example.com", "password": "TestFrank@33" },
+  { "id": "7", "username": "grace_note", "age": 26, "email": "grace.note@example.com", "password": "GraceNote99" },
+  { "id": "8", "username": "henry_x", "age": 31, "email": "henry.x@example.com", "password": "HenryX#123" },
+  { "id": "9", "username": "irene_k", "age": 29, "email": "irene.k@example.com", "password": "IreneK!2024" },
+  { "id": "10", "username": "jack_01", "age": 27, "email": "jack01@example.com", "password": "Jack_01234" },
+  { "id": "11", "username": "kelly_c", "age": 24, "email": "kelly.c@example.com", "password": "KellyC!789" },
+  { "id": "12", "username": "leo77", "age": 36, "email": "leo77@example.com", "password": "LeoSeventy7" },
+  { "id": "13", "username": "mia_w", "age": 21, "email": "mia.w@example.com", "password": "MiaW#2025" },
+  { "id": "14", "username": "nate_dev", "age": 32, "email": "nate.dev@example.com", "password": "NateDev_88" },
+  { "id": "15", "username": "olivia.star", "age": 23, "email": "olivia.star@example.com", "password": "Olivia*999" }
+]
+
+}

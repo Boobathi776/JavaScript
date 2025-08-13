@@ -1,0 +1,24 @@
+.overall-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+}
+
+form
+{
+    display: grid;
+    justify-content: center;
+    margin-top: 4vh;
+}
+
+.user-div
+{
+    display: grid;
+    grid-template-columns: 5% 15% 20% 5% 5% 10% 10%;
+    margin: 2vw;
+    border: 2px solid red;
+    padding: 1vw;
+    background-color: aqua;
+}

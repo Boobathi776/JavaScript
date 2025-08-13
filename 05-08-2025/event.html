@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custom Validation</title>
+</head>
+<body>
+
+<form id="myForm" novalidate>
+  <label for="email">Email:</label>
+  <input type="email" id="email" required>
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  const form = document.getElementById("myForm");
+  const emailInput = document.getElementById("email");
+
+  // Run validation BEFORE submit happens
+  form.addEventListener("submit", function (e) {
+    // Reset any previous message
+    emailInput.setCustomValidity("");
+
+    // Now validate
+    if (emailInput.validity.valueMissing) {
+      emailInput.setCustomValidity("Email is required.");
+    } else if (emailInput.validity.typeMismatch) {
+      emailInput.setCustomValidity("Please enter a valid email address.");
+    }
+
+    // Now check validity
+    if (!emailInput.checkValidity()) {
+      e.preventDefault();              // Stop submission
+      emailInput.reportValidity();     // Force browser to show message
+    }
+  });
+</script>
+
+</body>
+</html>

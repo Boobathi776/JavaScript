@@ -1,0 +1,19 @@
+textarea
+{
+    resize: none;
+}
+
+form
+{
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    gap: 1vw;
+    width: 40%;
+    margin: 10vh auto;
+}
+
+form div
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}

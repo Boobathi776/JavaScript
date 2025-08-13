@@ -1,0 +1,76 @@
+{
+  "tasks": [
+    {
+      "id": "0443",
+      "title": "to-do-list making",
+      "description": "making a new one now i fininshed it",
+      "priority": "2",
+      "isDone": true,
+      "createdDate": "2025-08-05T11:55:03.015Z",
+      "updatedDate": "2025-08-07T05:30:43.112Z"
+    },
+    {
+      "id": "31f1",
+      "title": "creating a to do list ",
+      "description": "it's  a new one right making it perferct",
+      "priority": "4",
+      "isDone": false,
+      "createdDate": "2025-08-05T12:07:22.000Z",
+      "updatedDate": "2025-08-06T12:43:15.978Z"
+    },
+    {
+      "id": "52fb",
+      "title": "creating to do list",
+      "description": "asdklfhasdf",
+      "priority": "4",
+      "isDone": true,
+      "createdDate": "2025-08-05T12:12:30.056Z",
+      "updatedDate": "2025-08-05T12:12:42.897Z"
+    },
+    {
+      "id": "ab06",
+      "title": "why the first value repeating",
+      "description": "find that bug and fit it",
+      "priority": "5",
+      "isDone": true,
+      "createdDate": "2025-08-05T12:13:18.300Z",
+      "updatedDate": "2025-08-06T16:29:25.281Z"
+    },
+    {
+      "id": "56ae",
+      "title": "new task now",
+      "description": "i have written something else before this now i have changed it ",
+      "priority": "2",
+      "isDone": false,
+      "createdDate": "2025-08-06T11:04:13.157Z",
+      "updatedDate": "2025-08-06T15:31:59.825Z"
+    },
+    {
+      "id": "4b0f",
+      "title": "this is the final task",
+      "description": "i hope i will finish this",
+      "priority": "2",
+      "isDone": false,
+      "createdDate": "2025-08-06T12:59:07.277Z",
+      "updatedDate": "2025-08-06T12:59:17.048Z"
+    },
+    {
+      "id": "0045",
+      "title": "offline problem handle",
+      "description": "if the user is in offline they can't add any task",
+      "priority": "5",
+      "isDone": false,
+      "createdDate": "2025-08-06T13:04:26.965Z",
+      "updatedDate": ""
+    },
+    {
+      "id": "29b8",
+      "title": "newer to-do list",
+      "description": "this is the updated to do list using bootstrap",
+      "priority": "5",
+      "isDone": true,
+      "createdDate": "2025-08-07T05:24:30.000Z",
+      "updatedDate": ""
+    }
+  ]
+}

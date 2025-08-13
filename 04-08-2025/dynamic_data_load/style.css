@@ -1,0 +1,15 @@
+.div-style
+{
+    width: 40%;
+    height: 30vh;
+    background-color: antiquewhite;
+    text-align: center;
+    display: inline-block;
+    margin: 1vw;
+}
+
+.container
+{
+    width: 80%;
+    margin: 0 auto;
+}

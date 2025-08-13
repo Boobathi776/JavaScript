@@ -1,0 +1,150 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "alice123",
+      "age": 25,
+      "email": "alice@example.com",
+      "gender": "female"
+    },
+    {
+      "id": "2",
+      "username": "bob_dev",
+      "age": 30,
+      "email": "bob.dev@example.com",
+      "gender": "male"
+    },
+    {
+      "id": "3",
+      "username": "charlie88",
+      "age": 22,
+      "email": "charlie88@example.com",
+      "gender": "male"
+    },
+    {
+      "id": "4",
+      "username": "diana_admin",
+      "age": 35,
+      "email": "diana.admin@example.com",
+      "gender": "female"
+    },
+    {
+      "id": "5",
+      "username": "evan_user",
+      "age": 28,
+      "email": "evan@example.com",
+      "gender": "male"
+    },
+    {
+      "id": "6",
+      "username": "frank.test",
+      "age": 33,
+      "email": "frank.test@example.com",
+      "gender": "male"
+    },
+    {
+      "id": "7",
+      "username": "grace_note",
+      "age": 26,
+      "email": "grace.note@example.com",
+      "gender": "female"
+    },
+    {
+      "id": "8",
+      "username": "henry_x",
+      "age": 31,
+      "email": "henry.x@example.com",
+      "gender": "male"
+    },
+    {
+      "id": "9",
+      "username": "irene_k",
+      "age": 29,
+      "email": "irene.k@example.com",
+      "gender": "female"
+    },
+    {
+      "id": "10",
+      "username": "jack_01",
+      "age": 27,
+      "email": "jack01@example.com",
+      "gender": "male"
+    },
+    {
+      "id": "11",
+      "username": "kelly_c",
+      "age": 24,
+      "email": "kelly.c@example.com",
+      "gender": "female"
+    },
+    {
+      "id": "12",
+      "username": "leo77",
+      "age": 36,
+      "email": "leo77@example.com",
+      "gender": "male"
+    },
+    {
+      "id": "13",
+      "username": "mia_w",
+      "age": 21,
+      "email": "mia.w@example.com",
+      "gender": "female"
+    },
+    {
+      "id": "14",
+      "username": "nate_dev",
+      "age": 32,
+      "email": "nate.dev@example.com",
+      "gender": "male"
+    },
+    {
+      "id": "15",
+      "username": "olivia.star",
+      "age": 23,
+      "email": "olivia.star@example.com",
+      "gender": "female"
+    },
+    {
+      "id": "16",
+      "username": "paul_neo",
+      "age": 34,
+      "email": "paul.neo@example.com",
+      "gender": "male"
+    },
+    {
+      "id": "17",
+      "username": "quinn_a",
+      "age": 22,
+      "email": "quinn.a@example.com",
+      "gender": "female"
+    },
+    {
+      "id": "18",
+      "username": "ryan_dev",
+      "age": 29,
+      "email": "ryan.dev@example.com",
+      "gender": "male"
+    },
+    {
+      "id": "19",
+      "username": "sophie_x",
+      "age": 26,
+      "email": "sophie.x@example.com",
+      "gender": "female"
+    },
+    {
+      "id": "20",
+      "username": "tony_z",
+      "age": 38,
+      "email": "tony.z@example.com",
+      "gender": "male"
+    },
+    {
+      "id": "7dbe",
+      "username": "boobathi",
+      "age": "78",
+      "email": "boobat@gmail.com",
+      "gender": "male"
+    } ]
+}
