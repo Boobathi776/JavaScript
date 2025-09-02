@@ -1,0 +1,12 @@
+Incompletes :
+
+Employee dashboard : 
+    Search and sorting in employee dashboard.
+    partially completed the search and sort things.
+ADD and update form :
+    toast message for successful adding and updation of record in form page.
+Department:
+    edit a department 
+
+these are the things i have not completed
+other than this i have complete all other things.

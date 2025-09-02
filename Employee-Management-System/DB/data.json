@@ -1,0 +1,53 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "departmentId": 2,
+      "joiningDate": "2025-07-01",
+      "salary": 55000
+    },
+    {
+      "id": "0a01",
+      "name": "boobathiraja",
+      "email": "boobathi@gmail.com",
+      "departmentId": "f15f",
+      "joiningDate": "2025-09-18",
+      "salary": "10000"
+    },
+    {
+      "id": "b0f9",
+      "name": "guhan",
+      "email": "gooks@gmail.com",
+      "departmentId": null,
+      "joiningDate": "2025-09-11",
+      "salary": "20000"
+    },
+    {
+      "id": "44c1",
+      "name": "govardan",
+      "email": "gova@gmail.com",
+      "departmentId": "f15f",
+      "joiningDate": "2025-09-01",
+      "salary": "15000"
+    }
+  ],
+  "departments": [
+    {
+      "id": "2",
+      "name": "Engineering",
+      "code": "ENG"
+    },
+    {
+      "id": "eda1",
+      "name": "department",
+      "code": "dev"
+    },
+    {
+      "id": "f15f",
+      "name": "Computer science",
+      "code": "CSE"
+    }
+  ]
+}
