@@ -38,11 +38,11 @@
         action=""
         class="rounded-5 p-5"
         novalidate
-        style="width: 50%; height: 80vh; border: 2px solid black"
+        style="width: 50%; height: 85vh; border: 2px solid black"
         id="form"
       >
-        <h2 class="text-center fst-italic mb-3">LOGIN</h2>
-        <div class="form-floating mb-4">
+        <h2 class="text-center fst-italic mb-3">EMPLOYEE</h2>
+        <div class="form-floating mb-3">
           <input
             type="text"
             class="form-control border-dark border-2"
@@ -50,10 +50,10 @@
             placeholder=""
           />
           <label for="name">Employee name</label>
-          <div class="invalid-feedback">name field must be filled</div>
+          <div class="invalid-feedback">Name field must be filled</div>
         </div>
 
-        <div class="form-floating mb-4">
+        <div class="form-floating mb-3">
           <input
             type="email"
             class="form-control border-2 border-dark"
@@ -61,21 +61,21 @@
             placeholder=""
           />
           <label for="email">Email</label>
-          <div class="invalid-feedback">email must be filled</div>
+          <div class="invalid-feedback">Email must be filled or invalid mail id</div>
         </div>
 
-        <div class="input-group">
+        <div class="input-group mb-0">
           <select
-            name=""
+            name="department"
             id="department-dropdown"
             class="form-select mb-3 border-2 border-dark"
           >
-            <option value="0">Select the department</option>
+            <!-- <option value="0">Select the department</option> -->
           </select>
-          <div class="invalid-feedback">must select the department</div>
+          <div class="invalid-feedback mt-0">Must select the department</div>
         </div>
 
-        <div class="form-floating">
+        <div class="form-floating mb-3">
           <input
             type="date"
             class="form-control mb-3 border-2 border-dark"
@@ -83,7 +83,7 @@
             placeholder="JoiningDate"
           />
           <label for="joiningDate">Joining Date</label>
-          <div class="invalid-feedback">must fill the joining date</div>
+          <div class="invalid-feedback">must fill the joining date and should not be future date</div>
         </div>
 
         <div class="form-floating mb-3">
@@ -96,7 +96,7 @@
           />
           <label for="salary">Salary</label>
           <div class="invalid-feedback">
-            salary field should not be empty and greater than 0
+            Salary field should not be empty and must greater than 0
           </div>
         </div>
 

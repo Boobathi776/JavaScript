@@ -26,12 +26,18 @@
     <h2 class="text-center mt-3 mb-3">Employee Directory</h2>
 
     <div class="container w-50 mt-3 mb-3">
-        <select id="sort-dropdown" class="form-select border-2 border-dark" >
-            <option value="0">Select the Department</option>
+         <select id="sort-dropdown" class="form-select border-2 border-dark" >
+            <option value="0">Select the option</option>
+            <option value="1">Employee Name</option>
+            <option value="2">Email</option>
+            <option value="3">Department</option>
+            <option value="4">Joining Date</option>
+            <option value="5">Salary</option>
         </select>
-        <button class="btn btn-primary mt-3 mb-3">Sort</button>
-        <button class="btn btn-primary mt-3 mb-3">clear sort</button>
+        <button id="sort-btn" class="btn btn-primary mt-3 mb-3">Sort</button>
+        <button id="clear-sort-btn" class="btn btn-primary mt-3 mb-3">clear sort</button>
     </div>
+
     <table class="table" >
         <thead >
         <tr class="bg-dark">
@@ -45,19 +51,25 @@
         </tr>
         <tr>
             <td>
-            <input type="text" id="name-search" class="form-control" placeholder="search by name">
+            <input type="search" id="name-search" class="border-2 border-dark form-control" placeholder="search by name" autocomplete="off">
             </td>
             <td>
-            <input type="text" id="emali-search" class="form-control" placeholder="search by email">
+            <input type="search" id="emali-search" class="border-2 border-dark form-control" placeholder="search by email" autocomplete="off">
             </td>
             <td>
-            <input type="text" id="department-search" class="form-control" placeholder="search by department">
+            <!-- <input type="text" id="department-search" class="form-control" placeholder="search by department"> -->
+                <select id="department-dropdown-search" class="form-select border-2 border-dark" >
+                     <option value="0">Select the Department</option>
+                </select>
             </td>
             <td>
-            <input type="date" id="joiningDate-search" class="form-control" placeholder="search by date">
+            <input type="date" id="joiningDate-search" class="form-control border-2 border-dark" placeholder="search by date" autocomplete="off">
             </td>
             <td>
-            <input type="text" id="salary-search" class="form-control" placeholder="search by salary">
+            <input type="search" id="salary-search" class="form-control border-2 border-dark" placeholder="search by salary" autocomplete="off">
+            </td>
+            <td colspan="2">
+                <button type="button" id="search-reset" class="btn btn-warning W-100">CLEAR SEARCH</button>
             </td>
         </tr>
         </thead>

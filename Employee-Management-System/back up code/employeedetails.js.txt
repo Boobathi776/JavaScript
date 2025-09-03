@@ -15,7 +15,15 @@ async function getEmployeeDetails() {
         return employee_data;
     }
     catch (error) {
-        noDataMessage("⏸️ Oops server problem....");
+        console.log("unable to fetch the user data ...");
+        const tr = document.createElement("tr");
+        const td = document.createElement("td");
+        td.textContent = "Oops! no data Exist";
+        td.setAttribute("colspan", "7");
+        td.classList.add("text-center", "fw-bold", "mt-5");
+        tr.appendChild(td);
+        const table = document.getElementById("employee-details");
+        table.appendChild(tr);
     }
 }
 
@@ -34,10 +42,6 @@ async function initiator() {
     department_details = await getDepartmentDetail();
     dropDownFill();
     ShowEmployeeInDom(Array.from(employee_details));
-    if(name_search.value.trim().length!=0 || email_search.value.trim().length!=0 || departmentDropDownSearch.value.trim().length!=0 || date_search.value.trim().length!=0 || salary_search.value)
-    {
-        searchFilter();
-    }
 }
 
 //Execution starter
@@ -69,16 +73,7 @@ function dropDownFill() {
 function ShowEmployeeInDom(employee_details = []) {
     try {
         document.getElementById("employee-details").innerHTML = " ";
-        const lastSearch = JSON.parse(localStorage.getItem("lastSearch"));
-        if (lastSearch) {
-            name_search.value = lastSearch.name || "";
-            email_search.value = lastSearch.email || "";
-            departmentDropDownSearch.value = lastSearch.departmentId || "0";
-            date_search.value = lastSearch.joiningDate || "";
-            salary_search.value = lastSearch.salary || "";
-        }
-
-        if (employee_details !== null && employee_details.length>0) {
+        if (employee_details !== null) {
             employee_details.forEach(employee => {
                 const name = document.createElement("td");
                 name.classList.add("text-center")
@@ -135,9 +130,9 @@ function ShowEmployeeInDom(employee_details = []) {
                 table.appendChild(table_row);
 
                 edit_button.addEventListener("click", () => {
-                    sessionStorage.removeItem("isDataExist");
-                    sessionStorage.setItem("isEdit", "true");
-                    sessionStorage.setItem("updating-employee", JSON.stringify(employee));
+                    localStorage.removeItem("isDataExist");
+                    localStorage.setItem("isEdit", "true");
+                    localStorage.setItem("updating-employee", JSON.stringify(employee));
                     window.location.href = "employee-add.html";
                 })
 
@@ -162,7 +157,7 @@ function ShowEmployeeInDom(employee_details = []) {
             });
         }
         else {
-            noDataMessage("❌Oops! No Employee data found...");
+            noDataMessage();
         }
     }
     catch (e) {
@@ -171,14 +166,13 @@ function ShowEmployeeInDom(employee_details = []) {
 
 }
 
-//No employee data message 
-function noDataMessage(message) {
+function noDataMessage() {
     document.getElementById("employee-details").innerHTML = " ";
     const tr = document.createElement("tr");
     const td = document.createElement("td");
-    td.textContent = message;
+    td.textContent = "Oops! no data Exist";
     td.setAttribute("colspan", "7");
-    td.classList.add("text-center", "fw-bold", "text-danger", "fs-2");
+    td.classList.add("text-center", "fw-bold", "text-danger", "fs-6");
     tr.appendChild(td);
     const table = document.getElementById("employee-details");
     table.appendChild(tr);
@@ -200,52 +194,145 @@ document.getElementById("search-reset").addEventListener("click", () => {
     date_search.value = "";
     salary_search.value = "";
     initiator();
-    localStorage.removeItem("lastSearch");
 });
 
 let filteredArray = [];
 
 //Search by name filter
 name_search.addEventListener("input", function () {
+    // email_search.value = "";
+    // date_search.value = "";
+    // departmentDropDownSearch.value = 0;
+    // salary_search.value = "";
+    // filteredArray.length = 0; //empty the array
+    // employee_details.forEach(employee => {
+    //     if (employee.name.toLowerCase().includes(name_search.value.trim().toLowerCase())) {
+    //         filteredArray.push(employee);
+    //     }
+    // })
+    // if (filteredArray.length != 0)
+    //     ShowEmployeeInDom(filteredArray);
+    // else {
+    //     noDataMessage();
+    // }
     searchFilter();
+
 });
 
 
 //Search by email 
 email_search.addEventListener("input", function () {
+    // name_search.value = "";
+    // date_search.value = "";
+    // departmentDropDownSearch.value = 0;
+    // dropDownSortElement.value = 0;
+    // date_search.value = "";
+    // salary_search.value = "";
+
+    // filteredArray.length = 0; //empty the array
+    //     employee_details.forEach(employee => {
+    //         if (employee.email.includes(email_search.value.trim())) {
+    //             filteredArray.push(employee);
+    //         }
+    //     })
+    //     if (filteredArray.length != 0)
+    //         ShowEmployeeInDom(filteredArray);
+    //     else {
+    //         noDataMessage();
+    //     }
     searchFilter();
+
 });
 
 //search by salary
 salary_search.addEventListener("input", async function () {
+    // let employeeNameInput = name_search.value.trim();
+    // // let emailInput = email_search.value.trim();
+    // // let deparmentId = departmentDropDownSearch.value;
+    // // let dateInput = date_search.value;
+    // // let input = salary_search.value.trim();
+    // console.log(employeeNameInput.length);
+    // if (!employeeNameInput.length) {
+    //     initiator();
+    // }
+    // else {
+    //     console.log("triggerd");
+    //     // filteredArray.length = 0; //empty the array
+    //     employee_details.forEach(employee => {
+    //         if (employee.salary == employeeNameInput) {
+    //             filteredArray.push(employee);
+    //         }
+    //     })
+    //     if (filteredArray.length != 0)
+    //         ShowEmployeeInDom(filteredArray);
+    //     else {
+    //         noDataMessage();
+    //     }
+    // }
     searchFilter();
+
 });
 
 //Search by date (incomplete)
 date_search.addEventListener("input", function () {
+    // name_search.value = "";
+    // departmentDropDownSearch.value = 0;
+    // dropDownSortElement.value = 0;
+    // salary_search.value = "";
+    // email_search.value = "";
+    // if (!date_search.value.trim().length) {
+    //     initiator();
+    // }
+    // // filteredArray.length = 0; //empty the array
+    // employee_details.forEach(employee => {
+    //     if (employee.joiningDate == date_search.value.trim()) {
+    //         filteredArray.push(employee);
+    //     }
+    // })
+    // if (filteredArray.length != 0)
+    //     ShowEmployeeInDom(filteredArray);
+    // else {
+    //     noDataMessage();
+    // }
+
     searchFilter();
+
 });
 
 //dropdown filter for department search
 departmentDropDownSearch.addEventListener("change", function () {
+    // name_search.value = "";
+    // salary_search.value = "";
+    // email_search.value = "";
+    // date_search.value = "";
+
+    // const departmentList = [];
+    // filteredArray.length = 0;
+    // if (departmentDropDownSearch.value == 0) {
+    //     initiator();
+    // }
+    // else {
+    // employee_details.forEach((employee) => {
+    //     if (departmentDropDownSearch.value == employee.departmentId) {
+    //         filteredArray.push(employee);
+    //     }
+    // })
+    // if (filteredArray.length != 0)
+    //     ShowEmployeeInDom(filteredArray);
+    // else {
+    //     noDataMessage();
+    // }
+    // }
     searchFilter();
+
 })
 
 function searchFilter() {
-    localStorage.removeItem("lastSearch");
     const nameQuery = name_search.value.trim().toLowerCase();
     const emailQuery = email_search.value.trim().toLowerCase();
     const deptQuery = departmentDropDownSearch.value;
     const joinDateQuery = date_search.value.trim();
     const salaryQuery = salary_search.value;
-
-    localStorage.setItem("lastSearch",JSON.stringify({
-        "name": nameQuery,
-        "email": emailQuery,
-        "departmentId": deptQuery,
-        "joiningDate": joinDateQuery,
-        "salary": salaryQuery
-    }));
 
     filteredArray = employee_details.filter(emp => {
         let match = true;
@@ -266,11 +353,10 @@ function searchFilter() {
         return match;
     });
 
-    if (filteredArray.length != 0 || filteredArray !=null) {
-        // console.log(filteredArray);
+    if (filteredArray.length !== 0) {
         ShowEmployeeInDom(filteredArray);
     } else {
-        noDataMessage("🔍🔎📁There is no matching record found‼️.....");
+        noDataMessage(); 
     }
 }
 
@@ -286,7 +372,7 @@ sortButton.addEventListener("click", () => {
     try {
         let value = dropDownSortElement.value;
         let sortedEmployeeData;
-        // console.log(filteredArray);
+        console.log(filteredArray);
         if (value === "0") {
             initiator();
         }

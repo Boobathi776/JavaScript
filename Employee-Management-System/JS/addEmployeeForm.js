@@ -1,23 +1,47 @@
+//URL to json-server
+const employeeURL = "http://localhost:3000/employees/";
+const deparmentURL = "http://localhost:3000/departments/";
 
 const nameInput = $("#name");
 const emailInput = $("#email");
 const department = $("#department-dropdown");
 const joiningDate = $("#joiningDate");
 const salary = $("#salary");
-
 start();
 
-async function start() {
-    if (localStorage.getItem("isEdit") === "true") {
-        const employee_data = localStorage.getItem("updating-employee");
-        console.log(employee_data);
-        const object = await JSON.parse(employee_data);
+// Department drop down option filler function
+async function loadDepartment() {
+    try {
+        const response = await fetch(deparmentURL);
+        const departments = await response.json();
+        const option = $("<option></option>");
+        option.attr("value", "0");
+        option.text("Select your Department");
+        $("#department-dropdown").append(option);
+        departments.forEach(department => {
+            $("#department-dropdown").append($("<option>", { value: department.id, text: department.name }));
+        });
+    } catch (error) {
+        console.log(error);
+        console.log("server error");
+    }
 
-        nameInput.val(object.name);
-        emailInput.val(object.email);
-        department.val(Number(object.departmentId));
-        joiningDate.val(object.joiningDate);
-        salary.val(object.salary);
+}
+
+
+async function start() {
+    await loadDepartment();
+    //IF the user try to update a data this part will work
+    if (sessionStorage.getItem("isEdit") === "true") {
+        const employee_data = sessionStorage.getItem("updating-employee");
+        console.log(employee_data);
+        const employee = await JSON.parse(employee_data);
+        nameInput.val(employee.name);
+        emailInput.val(employee.email);
+        department.val(employee.departmentId);
+        joiningDate.val(employee.joiningDate);
+        salary.val(employee.salary);
+
         $("#submit-btn").addClass("d-none");
         $("#update-btn").removeClass("d-none");
         $("#update-btn").addClass("d-block");
@@ -31,10 +55,10 @@ async function start() {
                 salaryValidation();
             }
             else {
-                // localStorage.removeItem("isEdit","true");
-                localStorage.setItem("isEdit", "false");
-                console.log(object.id);
-                const response = await fetch("http://localhost:3000/employees/" + object.id,
+                // sessionStorage.removeItem("isEdit","true");
+                sessionStorage.setItem("isEdit", "false");
+                console.log(employee.id);
+                const response = await fetch(employeeURL + employee.id,
                     {
                         method: "PATCH",
                         headers: {
@@ -69,6 +93,9 @@ async function start() {
 }
 
 
+//=====================================================
+//              INPUT VALIDATION
+//=====================================================
 
 //Name input validation
 nameInput.on("input", () => {
@@ -76,7 +103,6 @@ nameInput.on("input", () => {
     console.log("yes");
 })
 
-// const name_input = nameInput.val().trim();
 function nameValidation() {
     const namePattern = /^[a-zA-Z \.]{3,}$/;
     nameInput.removeClass("is-valid", "is-invalid");
@@ -91,39 +117,35 @@ function nameValidation() {
 }
 
 //Email input validation
-emailInput.on("input", () => {
-    emailValidation();
+emailInput.on("input", async function () {
+    await emailValidation();
 })
 
-function emailValidation() {
+async function isExistingEmail() {
+    try {
+        const response = await fetch(employeeURL);
+        const employee_details = await response.json();
+        return employee_details.some(emp => emp.email.trim() === emailInput.val().trim());
+    }
+    catch (error) {
+        console.log(error);
+        console.log("unable to fetch the user data ...");
+        return false;
+    }
+}
+
+async function emailValidation() {
     const emailPattern = /^[a-zA-Z0-9#$%&*]{3,}@[a-z]{3,}\.[a-z]{2,5}$/;
-    if (emailPattern.test(emailInput.val().trim())) {
-        emailInput.removeClass("is-invalid");
-        emailInput.addClass("is-valid");
+    const isExists = await isExistingEmail();
+    if (emailPattern.test(emailInput.val().trim()) && !isExists) {
+        emailInput.removeClass("is-invalid").addClass("is-valid");
     }
     else {
-        emailInput.removeClass("is-valid");
-        emailInput.addClass("is-invalid");
+        emailInput.removeClass("is-valid").addClass("is-invalid");
     }
 }
 
-// Department 
-async function loadDepartment() {
-    const response = await fetch("http://localhost:3000/departments");
-    const departments = await response.json();
-    // console.log(departments);
-    departments.forEach(department => {
-        const option = $("<option></option>");
-        option.attr("value", department.id);
-        option.text(department.name);
-        $("#department-dropdown").append(option);
-    });
-
-}
-
-loadDepartment();
-// console.log(department_details);
-
+//Department input validation
 department.on("input", () => {
     departmentValidation();
 })
@@ -139,31 +161,27 @@ function departmentValidation() {
     }
 }
 
-
-joiningDate.on("input", () => {
-    dateValidation();
-})
+//Date input validation
+joiningDate.on("input", () => dateValidation());
 
 function dateValidation() {
-    const joiningInput = new Date(joiningDate.val().trim());
-    if (joiningDate > new Date()) {
-        joiningDate.removeClass("is-valid");
-        joiningDate.addClass("is-invalid");
+    const value = joiningDate.val().trim();
+    const joiningDateInput = new Date(value);
+    if (isNaN(joiningDateInput.getTime()) || joiningDateInput > new Date()) {
+        joiningDate.removeClass("is-valid").addClass("is-invalid");
     }
     else {
-        joiningDate.removeClass("is-invalid");
-        joiningDate.addClass("is-valid");
+        joiningDate.removeClass("is-invalid").addClass("is-valid");
     }
 }
 
-// salary
-
+// Salary Input validation
 salary.on("input", () => {
     salaryValidation();
 })
 
 function salaryValidation() {
-    if (parseInt(salary.val().trim()) < 0) {
+    if (parseInt(salary.val().trim()) < 0 || salary.val().trim().length == 0) {
         salary.removeClass("is-valid");
         salary.addClass("is-invalid");
     }
@@ -173,6 +191,11 @@ function salaryValidation() {
     }
 
 }
+
+//=================================================
+//     FORM FOR ADD AND UPDATE EMPLOYEE DATA
+//=================================================
+
 const form = $("#submit-btn");
 form.on("click", async function (e) {
     e.preventDefault();
@@ -185,40 +208,44 @@ form.on("click", async function (e) {
         salaryValidation();
     }
     else {
-        const response = await fetch("http://localhost:3000/employees",
-            {
-                method: "Post",
-                headers: {
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify(
-                    {
-                        name: nameInput.val().trim(),
-                        email: emailInput.val().trim(),
-                        departmentId: department.val(),
-                        joiningDate: joiningDate.val().trim(),
-                        salary: salary.val().trim()
-                    }
-                )
+        if (!(await isExistingEmail()) && department.val() !== "0" && salary.val().trim().length !== 0 || Number(salary.val().trim()) > 0) {
+            const response = await fetch(employeeURL,
+                {
+                    method: "Post",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(
+                        {
+                            name: nameInput.val().trim(),
+                            email: emailInput.val().trim(),
+                            departmentId: department.val(),
+                            joiningDate: joiningDate.val().trim(),
+                            salary: salary.val().trim()
+                        }
+                    )
+                }
+            )
+            const data = await response.json();
+            console.log(data);
+            if (data != null) {
+                nameInput.val("");
+                emailInput.val("");
+                department.val("");
+                joiningDate.val("");
+                salary.val("");
+                window.location.href = "home.html";
             }
-        )
-        const data = await response.json();
-        console.log(data);
-        if (data != null) {
-            nameInput.val("");
-            emailInput.val("");
-            department.val("");
-            joiningDate.val("");
-            salary.val("");
-            window.location.href = "home.html";
+            else {
+                nameInput.val("");
+                emailInput.val("");
+                department.val("");
+                joiningDate.val("");
+                salary.val("");
+            }
         }
-        else
-        {
-            nameInput.val("");
-            emailInput.val("");
-            department.val("");
-            joiningDate.val("");
-            salary.val("");
+        else {
+            console.log("invalid mail id....");
         }
     }
 }
