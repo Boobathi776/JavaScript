@@ -9,11 +9,14 @@ const departmentURL = "http://localhost:3000/departments/";
 
 //Get Department data from json-server
 async function getDepartmentDetail() {
-    const response = await fetch(departmentURL);
-    const departments = await response.json();
-    // console.log(departments);
-    return departments;
-
+    try {
+        const response = await fetch(departmentURL);
+        const departments = await response.json();
+        return departments;
+    } catch (error) {
+        console.log("error : unable to get the department details....");
+        return null;
+    }
 }
 
 //Get employee data from json-server
@@ -25,6 +28,7 @@ async function getEmployeeDetails() {
     }
     catch (error) {
         console.log("unable to fetch the user data ....");
+        return null;
     }
 }
 
@@ -32,13 +36,12 @@ let department_details;
 
 async function start() {
     try {
-        console.log("i am reached here...");
+        // console.log("i am reached here...");
         department_details = await getDepartmentDetail();
         ShowDepartmentInDom(department_details);
     } catch (error) {
         noDataMessage("❌Server problem.....");
     }
-
 }
 
 start(); //program starting point
@@ -68,32 +71,38 @@ form.on("submit", async function (e) {
             departmentDataAlreadyExistToast();
         }
         else {
-            const response = await fetch(departmentURL,
-                {
-                    method: "Post",
-                    headers: {
-                        "content-type": "application/json"
-                    },
-                    body: JSON.stringify(
-                        {
-                            name: departmentName,
-                            code: departmentCode
-                        }
-                    )
+            try {
+                const response = await fetch(departmentURL,
+                    {
+                        method: "Post",
+                        headers: {
+                            "content-type": "application/json"
+                        },
+                        body: JSON.stringify(
+                            {
+                                name: departmentName,
+                                code: departmentCode.toUpperCase()
+                            }
+                        )
+                    }
+                )
+                console.log("posted");
+                const data = await response.json();
+                console.log(data);
+                if (data != null) {
+                    nameInput.val("");
+                    codeInput.val("");
+                    start();
+                    departmentAddedToastMessage();
                 }
-            )
-            console.log("posted");
-            const data = await response.json();
-            console.log(data);
-            if (data != null) {
-                nameInput.val("");
-                codeInput.val("");
-                start();
-                departmentAddedToastMessage();
+                else {
+                    console.log("unable to add a new deparment");
+                }
             }
-            else {
-                console.log("unable to add a new deparment");
+            catch (error) {
+                console.log("error:unable to add a new department....");
             }
+
         }
     }
 });
@@ -147,14 +156,15 @@ function ShowDepartmentInDom(department_details) {
                         let changedDepartmentCode = codeInput.val();
                         console.log(changedDepartmentCode + " " + changedDepartmentName);
                         console.log("id is =" + department.id);
-                        console.log("update button clicked....");
-
+                        console.log("update button clicked....");             
+                        $('#name').focus();
+                        nameInput.scrollIntoView({behaviour:"smooth",block:"center"});   
                         $.ajax({
                             type: "Patch",
                             url: departmentURL + department.id,
                             data: JSON.stringify({
                                 "name": changedDepartmentName,
-                                "code": changedDepartmentCode
+                                "code": changedDepartmentCode.toUpperCase()
                             }),
                             dataType: "application/json",
                             success: function (response) {

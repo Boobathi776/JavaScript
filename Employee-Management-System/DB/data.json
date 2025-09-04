@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Alice Johnson",
       "email": "alice@example.com",
-      "departmentId": "2",
+      "departmentId": "eda1",
       "joiningDate": "2025-07-01",
       "salary": "55000"
     },
@@ -39,14 +39,6 @@
       "departmentId": "e6ba",
       "joiningDate": "2025-09-01",
       "salary": "15000"
-    },
-    {
-      "id": "312a",
-      "name": "santhosh",
-      "email": "santhoshsubramaniyam@gmail.com",
-      "departmentId": "f15f",
-      "joiningDate": "2025-02-11",
-      "salary": "20000"
     },
     {
       "id": "414f",
@@ -87,6 +79,62 @@
       "departmentId": "f15f",
       "joiningDate": "2025-06-03",
       "salary": "10421"
+    },
+    {
+      "id": "2b79",
+      "name": "akjsdf",
+      "email": "gookhgfs@gmail.com",
+      "departmentId": "eda1",
+      "joiningDate": "2025-09-02",
+      "salary": "1000"
+    },
+    {
+      "id": "f812",
+      "name": "Alice Johnson",
+      "email": "asdf#@gmail.com",
+      "departmentId": "9346",
+      "joiningDate": "2025-09-01",
+      "salary": "1200"
+    },
+    {
+      "id": "443d",
+      "name": "boobathi",
+      "email": "sassn@gmail.com",
+      "departmentId": "f15f",
+      "joiningDate": "2025-09-01",
+      "salary": "513216"
+    },
+    {
+      "id": "0223",
+      "name": "govardan",
+      "email": "gova2@gmail.com",
+      "departmentId": "2",
+      "joiningDate": "2025-09-03",
+      "salary": "564231"
+    },
+    {
+      "id": "6804",
+      "name": "Alice Johnson",
+      "email": "asdfk@gmail.cm",
+      "departmentId": "2",
+      "joiningDate": "2025-09-01",
+      "salary": "6546152"
+    },
+    {
+      "id": "62e0",
+      "name": "Santhosh N",
+      "email": "santz@gmail.com",
+      "departmentId": "e6ba",
+      "joiningDate": "2025-09-01",
+      "salary": "1230005"
+    },
+    {
+      "id": "1cfd",
+      "name": "sdf",
+      "email": "asdf@gmail.com",
+      "departmentId": "2",
+      "joiningDate": "2025-09-01",
+      "salary": "12346"
     }
   ],
   "departments": [
@@ -107,13 +155,8 @@
     },
     {
       "id": "e6ba",
-      "name": "Civil",
+      "name": "Civil Engineering",
       "code": "CV"
-    },
-    {
-      "id": "8195",
-      "name": "Electrical and Electronics Engineering",
-      "code": "EEE"
     },
     {
       "id": "4f92",
@@ -124,11 +167,6 @@
       "id": "9346",
       "name": "Integration Engineering",
       "code": "IE"
-    },
-    {
-      "id": "2ff5",
-      "name": "gurji",
-      "code": "GURU"
     }
   ]
 }

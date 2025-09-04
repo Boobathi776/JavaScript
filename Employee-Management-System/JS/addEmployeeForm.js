@@ -46,7 +46,8 @@ async function start() {
         $("#update-btn").removeClass("d-none");
         $("#update-btn").addClass("d-block");
 
-        $("#update-btn").on("click", async function () {
+        $("#update-btn").on("click", async function (e) {
+            e.preventDefault();
             if (nameInput.val().trim().length === 0 || emailInput.val().trim().length === 0 || Number(department.val()) === 0 || joiningDate.val().trim() === 0 || Number(salary.val().trim()) < 0) {
                 nameValidation();
                 emailValidation();
@@ -58,34 +59,45 @@ async function start() {
                 // sessionStorage.removeItem("isEdit","true");
                 sessionStorage.setItem("isEdit", "false");
                 console.log(employee.id);
-                const response = await fetch(employeeURL + employee.id,
-                    {
-                        method: "PATCH",
-                        headers: {
-                            "content-type": "application/json"
-                        },
-                        body: JSON.stringify(
-                            {
-                                name: nameInput.val().trim(),
-                                email: emailInput.val().trim(),
-                                departmentId: department.val(),
-                                joiningDate: joiningDate.val().trim(),
-                                salary: salary.val().trim()
-                            }
-                        )
+                try {
+                    const response = await fetch(employeeURL + employee.id,
+                        {
+                            method: "PATCH",
+                            headers: {
+                                "content-type": "application/json"
+                            },
+                            body: JSON.stringify(
+                                {
+                                    name: nameInput.val().trim(),
+                                    email: emailInput.val().trim(),
+                                    departmentId: department.val(),
+                                    joiningDate: joiningDate.val().trim(),
+                                    salary: salary.val().trim()
+                                }
+                            )
+                        }
+                    )
+                    const data = await response.json();
+                    console.log(data);
+                    if (data != null) {
+                        nameInput.val("");
+                        emailInput.val("");
+                        department.val("0");
+                        joiningDate.val("");
+                        salary.val("");
+                        console.log("completed");
+                        employeeUpdatedToastMessage();
+                        setTimeout(() => {
+                            window.location.href = "home.html";
+                        }, 2000);
                     }
-                )
-                nameInput.val("");
-                emailInput.val("");
-                department.val("");
-                joiningDate.val("");
-                salary.val("");
+                    else {
+                        console.log("error : unable to update an employee...");
+                    }
 
-                const data = await response.json();
-                console.log(data);
-                console.log("complteed");
-
-                window.location.href = "home.html";
+                } catch (error) {
+                    console.log(error);
+                }
             }
         })
 
@@ -199,8 +211,12 @@ function salaryValidation() {
 const form = $("#submit-btn");
 form.on("click", async function (e) {
     e.preventDefault();
-    // console.log("nothing")
-    if (nameInput.val().trim().length === 0 || emailInput.val().trim().length === 0 || department.val() === 0 || joiningDate.val().trim() === 0 || Number(salary.val().trim()) < 0) {
+    if (nameInput.val().trim().length === 0 ||
+        emailInput.val().trim().length === 0 ||
+        department.val() === 0 ||
+        joiningDate.val().trim().length === 0 ||
+        Number(salary.val().trim()) <= 0
+    ) {
         nameValidation();
         emailValidation();
         departmentValidation();
@@ -208,41 +224,50 @@ form.on("click", async function (e) {
         salaryValidation();
     }
     else {
-        if (!(await isExistingEmail()) && department.val() !== "0" && salary.val().trim().length !== 0 || Number(salary.val().trim()) > 0) {
-            const response = await fetch(employeeURL,
-                {
-                    method: "Post",
-                    headers: {
-                        "content-type": "application/json"
-                    },
-                    body: JSON.stringify(
-                        {
-                            name: nameInput.val().trim(),
-                            email: emailInput.val().trim(),
-                            departmentId: department.val(),
-                            joiningDate: joiningDate.val().trim(),
-                            salary: salary.val().trim()
-                        }
-                    )
+        if (nameInput.val().trim().length >= 3 && !(await isExistingEmail()) && department.val() != "0" && (salary.val().trim().length !== 0 || Number(salary.val().trim()) > 0)) {
+            try {
+                const response = await fetch(employeeURL,
+                    {
+                        method: "Post",
+                        headers: {
+                            "content-type": "application/json"
+                        },
+                        body: JSON.stringify(
+                            {
+                                name: nameInput.val().trim(),
+                                email: emailInput.val().trim(),
+                                departmentId: department.val(),
+                                joiningDate: joiningDate.val().trim(),
+                                salary: salary.val().trim()
+                            }
+                        )
+                    }
+                )
+                const data = await response.json();
+                console.log(data);
+                if (data != null) {
+                    nameInput.val("");
+                    emailInput.val("");
+                    department.val("");
+                    joiningDate.val("");
+                    salary.val("");
+                    employeeAddedToastMessage();
+                    // setTimeout(() => {
+                    //     window.location.href = "home.html";
+                    // }, 3000);
                 }
-            )
-            const data = await response.json();
-            console.log(data);
-            if (data != null) {
-                nameInput.val("");
-                emailInput.val("");
-                department.val("");
-                joiningDate.val("");
-                salary.val("");
-                window.location.href = "home.html";
+                else {
+                    nameInput.val("");
+                    emailInput.val("");
+                    department.val("");
+                    joiningDate.val("");
+                    salary.val("");
+                }
             }
-            else {
-                nameInput.val("");
-                emailInput.val("");
-                department.val("");
-                joiningDate.val("");
-                salary.val("");
+            catch (error) {
+                console.log("unable to add an employee....");
             }
+
         }
         else {
             console.log("invalid mail id....");
@@ -250,3 +275,33 @@ form.on("click", async function (e) {
     }
 }
 )
+
+
+//======================================
+//         Toast Messages
+//======================================
+
+//Department Added Toast
+function employeeAddedToastMessage() {
+    console.log("toast called..");
+    $("#employeeAddedToast").fadeIn(500);
+    setTimeout(() => {
+        $("#employeeAddedToast").fadeOut(500);
+    }, 3000);
+}
+
+$("#employeeAddedToastCloseBtn").on("click", () => {
+    $("#employeeAddedToast").fadeOut();
+});
+
+//department data updated toast 
+function employeeUpdatedToastMessage() {
+    $("#employeeupdatedToast").fadeIn(500);
+    setTimeout(() => {
+        $("#employeeupdatedToast").fadeOut(500);
+    }, 5000);
+}
+
+$("#employeeupdatedToastCloseBtn").on("click", () => {
+    $("#employeeupdatedToast").fadeOut();
+});

@@ -21,9 +21,13 @@ async function getEmployeeDetails() {
 
 //Get department data from the json-server
 async function getDepartmentDetail() {
-    const response = await fetch(deparmentURL);
-    const departments = await response.json();
-    return departments;
+    try {
+        const response = await fetch(deparmentURL);
+        const departments = await response.json();
+        return departments;
+    } catch (error) {
+        noDataMessage("⏸️ Oops server problem....");
+    }
 }
 
 let employee_details;
@@ -33,8 +37,11 @@ async function initiator() {
     employee_details = await getEmployeeDetails();
     department_details = await getDepartmentDetail();
     dropDownFill();
-    ShowEmployeeInDom(Array.from(employee_details));
-    if(name_search.value.trim().length!=0 || email_search.value.trim().length!=0 || departmentDropDownSearch.value.trim().length!=0 || date_search.value.trim().length!=0 || salary_search.value)
+    // if (employee_details.length != 0)
+        ShowEmployeeInDom(Array.from(employee_details));
+    // else
+    //     noDataMessage("❌Oops! No Employee data found...");
+    if (name_search.value.trim().length != 0 || email_search.value.trim().length != 0 || departmentDropDownSearch.value.trim().length != 0 || date_search.value.trim().length != 0 || salary_search.value) 
     {
         searchFilter();
     }
@@ -78,12 +85,12 @@ function ShowEmployeeInDom(employee_details = []) {
             salary_search.value = lastSearch.salary || "";
         }
 
-        if (employee_details !== null && employee_details.length>0) {
+        if (employee_details !== null && employee_details.length > 0) {
             employee_details.forEach(employee => {
                 const name = document.createElement("td");
-                name.classList.add("text-center")
+                name.classList.add("text-center");
                 const email = document.createElement("td");
-                email.classList.add("text-center")
+                email.classList.add("text-center");
 
                 const department = document.createElement("td");
 
@@ -142,7 +149,9 @@ function ShowEmployeeInDom(employee_details = []) {
                 })
 
                 delete_button.addEventListener("click", async function () {
-                    if (confirm("Are you sure you want to delete this?")) {
+
+                    try {
+                        if (confirm("Are you sure you want to delete this?")) {
                         const response = await fetch(employeeURL + employee.id,
                             {
                                 method: "Delete"
@@ -157,6 +166,9 @@ function ShowEmployeeInDom(employee_details = []) {
                         else {
                             console.log("unable to dlt an employee....");
                         }
+                    }
+                    } catch (error) {
+                        console.log(error+"error: unable to dlt an employee....");
                     }
                 });
             });
@@ -239,7 +251,7 @@ function searchFilter() {
     const joinDateQuery = date_search.value.trim();
     const salaryQuery = salary_search.value;
 
-    localStorage.setItem("lastSearch",JSON.stringify({
+    localStorage.setItem("lastSearch", JSON.stringify({
         "name": nameQuery,
         "email": emailQuery,
         "departmentId": deptQuery,
@@ -266,11 +278,11 @@ function searchFilter() {
         return match;
     });
 
-    if (filteredArray.length != 0 || filteredArray !=null) {
+    if (filteredArray.length != 0 || filteredArray != null) {
         // console.log(filteredArray);
         ShowEmployeeInDom(filteredArray);
     } else {
-        noDataMessage("🔍🔎📁There is no matching record found‼️.....");
+        noDataMessage("🔎There is no matching record found‼️.....");
     }
 }
 
